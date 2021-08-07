@@ -1,10 +1,12 @@
 
+import ItemCount from './../ItemCount/ItemCount';
 
 
-function ItemListContainer() {
+function ItemListContainer(props) {
     return (
               <>
-               <h1>Buenas</h1>
+               <h1>{props.h1}</h1>
+               <ItemCount/>
               </>
     )
 }
