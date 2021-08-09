@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import './ButtonStyles.css'
+
 
 function ItemCount({ stock = 5, initial = 0, onAdd = () => {} }) {
     const [userSelected, setUserSelected] = useState(initial)
@@ -17,9 +19,9 @@ const handleOnAddCarrito = (event) => {
 
     return (
         <>
-            <button onClick={() => aumenta()}> + </button>
-            <button onClick={() => disminuye()}> - </button>
-            <div>{userSelected}</div>
+            <button variant="contained" className="buttonCount" onClick={() => aumenta()}> + </button>
+            <button variant="contained" className="buttonCount" onClick={() => disminuye()}> - </button>
+            <div >{userSelected}</div>
             <button onClick={handleOnAddCarrito}>Agregar al Carrito</button>
         </>
     );

@@ -1,0 +1,7 @@
+.contenedor {
+    display: flex;
+}
+
+.styleCard {
+    background-color: bisque;
+}
