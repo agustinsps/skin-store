@@ -1,14 +1,6 @@
 import React from "react";
 import "./ItemStyle.css";
-
-function Item({name, price}) {
-  return (
-      <div className="styleCard">
-          <div>{name}</div>
-          <div>{price}</div>
-      </div>
-  );
-}
+import Item from "./Item";
 
 function ItemLists() {
   const items = [
