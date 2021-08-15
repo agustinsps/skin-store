@@ -1,5 +1,4 @@
 import React from "react";
-import "./ItemStyle.css";
 import Item from "./Item";
 
 function ItemLists() {

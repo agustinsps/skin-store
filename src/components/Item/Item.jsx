@@ -1,5 +1,4 @@
 import React from "react";
-import "./ItemStyle.css";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -11,7 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import CartWidget from "../CartWidget/CartWidget";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -19,10 +18,11 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 345,
     },
     action: {
-        marginTop: "1rem",
+        marginTop: "2rem",
     },
     media: {
-        height: 0,
+        height: "3rem",
+        
         paddingTop: '56.25%', // 16:9
     },
     expand: {
@@ -46,31 +46,28 @@ function Item ({ name, productType, price, image, description }) {
     };
 
         return (
-            <Card className={classes.root}>
-                <CardHeader>
+            <Card className={classes.root} >
+                <CardHeader
                     action = {
                         <Typography
                             className={classes.action}
                             variant='h5'
                             color='textSecondary'
                         >
-                           <div> {price} </div>
+                         {price}
                         </Typography>
                        }
-                   title = {name}
-                </CardHeader>
-                <CardMedia className={classes.media}>
-                    <div> {image} </div>
-                <CardMedia />
+                   title= {name}
+                />
+                <CardMedia className={classes.media}
+                 img  =  {image} 
+                />
                     <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
                           <div> {productType} </div> 
                         </Typography>
                     </CardContent>
                     <CardActions disableSpacing>
-                        <IconButton>
-                            <CartWidget />
-                        </IconButton>
                         <IconButton
                             className={clsx(classes.expand, {
                                 [classes.expandOpen]: expanded,
@@ -84,7 +81,7 @@ function Item ({ name, productType, price, image, description }) {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                            <Typography> <div> {description} </div> </Typography>
+                            <Typography paragraph>  {description}  </Typography>
                         </CardContent>
                     </Collapse>
             </Card>
