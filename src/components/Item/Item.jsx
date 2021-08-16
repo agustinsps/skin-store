@@ -10,6 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ItemCount from "../ItemCount/ItemCount";
 
 
 
@@ -22,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: "3rem",
-        
         paddingTop: '56.25%', // 16:9
     },
     expand: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Item ({ name, productType, price, image, description }) {
+function Item ({ name, productType, price, image, description, }) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -60,7 +60,7 @@ function Item ({ name, productType, price, image, description }) {
                    title= {name}
                 />
                 <CardMedia className={classes.media}
-                 img  =  {image} 
+                 image  =  {image} 
                 />
                     <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -81,9 +81,10 @@ function Item ({ name, productType, price, image, description }) {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                            <Typography paragraph>  {description}  </Typography>
+                            <Typography paragraph>{description}</Typography>
                         </CardContent>
                     </Collapse>
+                    <ItemCount/>
             </Card>
                 );
   }

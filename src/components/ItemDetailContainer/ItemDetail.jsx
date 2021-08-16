@@ -1,8 +1,7 @@
-import React from "react";
-import Item from "./Item";
 
-function ItemLists() {
-  const items = [
+
+
+const ItemDetail= [
     {
       id: 1,
       name: "Ak-47",
@@ -29,17 +28,5 @@ function ItemLists() {
     },
   ];
 
-  const ItemList = items.map((item) => (
-    <Item
-      name={item.name}
-      productType={item.productType}
-      price={item.price}
-      image={item.image}
-      description={item.description}
-    />
-  ));
+export default ItemDetail
 
-  return <>{ItemList}</>;
-}
-
-export default ItemLists;
