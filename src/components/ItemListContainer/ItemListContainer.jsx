@@ -1,14 +1,16 @@
+import ItemLists from "../ItemList/ItemLists";
 
-import ItemList from '../Item/ItemLists';
+
+
 
 
 
 function ItemListContainer(props) {
     return (
-              <>
-               <h1>{props.h1}</h1>
-               <ItemList/> 
-              </>
+                <>
+                    <h1>{props.h1}</h1>
+                    <ItemLists/>              
+                </>
     )
 }
 

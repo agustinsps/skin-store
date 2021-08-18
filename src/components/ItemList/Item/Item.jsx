@@ -10,7 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ItemCount from "../ItemCount/ItemCount";
+import ItemCount from "../../ItemCount/ItemCount";
 
 
 

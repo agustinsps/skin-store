@@ -2,27 +2,37 @@ import React, { useState } from "react";
 import './ButtonStyles.css'
 
 
-function ItemCount({ stock = 5, initial = 0, onAdd = () => {} }) {
-    const [userSelected, setUserSelected] = useState(initial)
-   
-const aumenta = () => {
-    if (userSelected < stock) setUserSelected (userSelected+1)
-}
+        const ItemCount = (props) => {
 
-const disminuye = () => {
-   if (userSelected > 0) setUserSelected (userSelected-1)
-}
+            const [stock, setStock] = useState(props.stock)
+            const [unidades, setUnidades] = useState(0)
 
-const handleOnAddCarrito = (event) => {
-               if (userSelected > 0) onAdd(event)
-}
+            const handleStock = {
+                sumaStock: () =>{
+        if (stock === 0){
+            alert('No hay Stock')
+        } else {
+            setUnidades(unidades+1)
+            setStock(stock-1)
+                }
+            },
+                restaStock:()=> {
+                    if(unidades===0){
+                        alert('No podes comprar!')
+                    } else{
+                        setUnidades(unidades-1)
+                        setStock(stock+1)
+                    }
+                },
+        }
+
 
     return (
         <>
-            <button variant="contained" className="buttonCount" onClick={() => aumenta()}> + </button>
-            <button variant="contained" className="buttonCount" onClick={() => disminuye()}> - </button>
-            <div >{userSelected}</div>
-            <button onClick={handleOnAddCarrito}>Agregar al Carrito</button>
+            <button variant="contained" className="buttonCount" onClick={handleStock.sumaStock} disable={stock==='0'}> + </button>
+            <p>{unidades}</p>
+            <button variant="contained" className="buttonCount" onClick={handleStock.restaStock} disable={stock==='0'}> - </button>
+            <p>Stock Disponible: {stock} </p>
         </>
     );
 }
