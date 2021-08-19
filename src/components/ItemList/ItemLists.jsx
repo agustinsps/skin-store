@@ -1,6 +1,11 @@
 import items from '../../Products/items';
 import Item from './Item/Item';
 import React, {useState, useEffect} from "react";
+import CircularIndeterminate from './CircularIndeterminate';
+
+
+
+
 
 
 
@@ -26,7 +31,7 @@ productos().then((itemss)=>{
   return (
           <>
             {
-              cargando ? <h2> CARGANDO PRODUCTOS </h2> :
+              cargando ? <CircularIndeterminate/> :
               productos.map((producto)=>
               <Item id={producto.id} name={producto.name} productType={producto.productType} price={producto.price} image={producto.image} desc={producto.description}/>
               )
