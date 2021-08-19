@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Item ({ name, productType, price, image, description, }) {
+function Item ({ name, productType, price, image, description, stock }) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -84,7 +84,7 @@ function Item ({ name, productType, price, image, description, }) {
                             <Typography paragraph>{description}</Typography>
                         </CardContent>
                     </Collapse>
-                    <ItemCount/>
+                    <ItemCount stock={stock}/>
             </Card>
                 );
   }

@@ -5,10 +5,6 @@ import CircularIndeterminate from './CircularIndeterminate';
 
 
 
-
-
-
-
 const ItemLists = () => {
 
   const [productos,setProductos] =  useState([])
@@ -33,7 +29,7 @@ productos().then((itemss)=>{
             {
               cargando ? <CircularIndeterminate/> :
               productos.map((producto)=>
-              <Item id={producto.id} name={producto.name} productType={producto.productType} price={producto.price} image={producto.image} desc={producto.description}/>
+              <Item id={producto.id} name={producto.name} productType={producto.productType} price={producto.price} image={producto.image} desc={producto.description} stock={producto.stock}/>
               )
             }
           </>
