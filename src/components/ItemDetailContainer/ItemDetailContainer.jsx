@@ -26,7 +26,7 @@ productos().then((itemss)=>{
   return (
           <>
             { cargando ?  <h2>CARGANDO PRODUCTO</h2> :
-              <ItemDetail name={producto.name} image={producto.image} description={producto.description}/>
+              <ItemDetail name={producto.name} image={producto.image} description={producto.description} price={producto.price}/>
               }
           </>
   )
