@@ -20,7 +20,7 @@ function App() {
         </div>
         <div>
           <Switch>
-            <Route path="/HOME">
+            <Route path="/">
               <ItemListContainer h1="Bienvenidos" />
             </Route>
             <Route path="/:productType/:id" exact>

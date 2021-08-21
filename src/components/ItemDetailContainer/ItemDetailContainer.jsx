@@ -20,9 +20,15 @@ const ItemDetailContainer = () => {
       });
     };
     productos().then((itemss) => {
+      if(id!=null){
       const producto = itemss.find((producto) => (producto.id ===id));
       setProducto(producto);
       setCargando(false);
+      } else {
+        const producto = itemss.find((producto) => (producto.id ===1));
+        setProducto(producto);
+        setCargando(false);
+      }
     });
   }, [])
 

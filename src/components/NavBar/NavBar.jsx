@@ -40,11 +40,11 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <img src="Images/logo.png" className={classes.image} alt="Logo" />
+          <img src="/Images/logo.png" className={classes.image} alt="Logo" />
           <div className={classes.grow} />
           <div className={classes.links}>
           <Typography variant="h6" color="textPrimary">
-            <Link to="/HOME"> Home </Link>
+            <Link to="/"> Home </Link>
           </Typography>
 
           <Typography variant="h6" color="textPrimary">
