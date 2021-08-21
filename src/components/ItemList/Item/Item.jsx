@@ -54,7 +54,7 @@ function Item ({ name, productType, price, image, description, stock }) {
                             variant='h5'
                             color='textSecondary'
                         >
-                         {price}
+                         BTC {price}
                         </Typography>
                        }
                    title= {name}
