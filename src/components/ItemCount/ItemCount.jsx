@@ -30,9 +30,9 @@ import './ButtonStyles.css'
     return (
         <>
             <button variant="contained" className="buttonCount" onClick={handleStock.sumaStock} disable={stock==='0'}> + </button>
-            <p>{unidades}</p>
+             <p>{unidades}</p>
             <button variant="contained" className="buttonCount" onClick={handleStock.restaStock} disable={stock==='0'}> - </button>
-            <p>Stock Disponible: {stock} </p>
+             <p>Stock Disponible: {stock} </p>
         </>
     );
 }

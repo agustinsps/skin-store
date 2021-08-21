@@ -1,18 +1,17 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import Collapse from "@material-ui/core/Collapse";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ItemCount from "../../ItemCount/ItemCount";
-
-
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,21 +22,21 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: "3rem",
-        paddingTop: '56.25%', // 16:9
+        paddingTop: "56.25%", // 16:9
     },
     expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
+        transform: "rotate(0deg)",
+        marginLeft: "auto",
+        transition: theme.transitions.create("transform", {
             duration: theme.transitions.duration.shortest,
         }),
     },
     expandOpen: {
-        transform: 'rotate(180deg)',
+        transform: "rotate(180deg)",
     },
 }));
 
-function Item ({ name, productType, price, image, description, stock }) {
+function Item({ name, productType, price, image, description, stock, id }) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -45,48 +44,48 @@ function Item ({ name, productType, price, image, description, stock }) {
         setExpanded(!expanded);
     };
 
-        return (
-            <Card className={classes.root} >
+    return (
+        <Card className={classes.root}>
+            <Link to={`/${productType}/${id}`}>
                 <CardHeader
-                    action = {
+                    action={
                         <Typography
                             className={classes.action}
-                            variant='h5'
-                            color='textSecondary'
+                            variant="h5"
+                            color="textSecondary"
                         >
-                         BTC {price}
+                            BTC {price}
                         </Typography>
-                       }
-                   title= {name}
+                    }
+                    title={name}
                 />
-                <CardMedia className={classes.media}
-                 image  =  {image} 
-                />
+                <CardMedia className={classes.media} image={image} />
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        <div> {productType} </div>
+                    </Typography>
+                </CardContent>
+                <CardActions disableSpacing>
+                    <IconButton
+                        className={clsx(classes.expand, {
+                            [classes.expandOpen]: expanded,
+                        })}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </IconButton>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          <div> {productType} </div> 
-                        </Typography>
+                        <Typography paragraph>{description}</Typography>
                     </CardContent>
-                    <CardActions disableSpacing>
-                        <IconButton
-                            className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
-                        >
-                            <ExpandMoreIcon />
-                        </IconButton>
-                    </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                        <CardContent>
-                            <Typography paragraph>{description}</Typography>
-                        </CardContent>
-                    </Collapse>
-                    <ItemCount stock={stock}/>
-            </Card>
-                );
-  }
+                </Collapse>
+                <ItemCount stock={stock} />
+            </Link>
+        </Card>
+    );
+}
 
-                export default Item
+export default Item;
