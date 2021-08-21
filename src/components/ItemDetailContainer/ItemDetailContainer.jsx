@@ -13,11 +13,11 @@ const productos = () => {
   return new Promise((resolve, reject) =>{
     setTimeout(()=>{
     resolve(items)
-  },3000)
+  },5000)
 })
 } 
 productos().then((itemss)=>{
-    const producto = itemss.find((producto => producto.id === '1'))
+    const producto = itemss.find((producto => producto.id = '1'))
   setProducto(producto)
   setCargando(false)
 })
@@ -26,7 +26,7 @@ productos().then((itemss)=>{
   return (
           <>
             { cargando ?  <h2>CARGANDO PRODUCTO</h2> :
-              <ItemDetail image={producto.image} />
+              <ItemDetail name={producto.name} image={producto.image} description={producto.description}/>
               }
           </>
   )
