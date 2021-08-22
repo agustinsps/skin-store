@@ -5,6 +5,9 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import ItemCount from "../../ItemCount/ItemCount";
+import { useState } from "react";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +23,29 @@ const useStyles = makeStyles((theme) => ({
 
 function ItemDetail({ name, productType, price, image, description, stock }) {
   const classes = useStyles();
+
+  const [itemCountVisible, setItemCountVisible] = useState(true);
+  const [buyButtonsVisibility, setBuyButtonsVisibility] = useState(true);
+  const [itemsCount, setItemsCount] = useState(0);
+
+  const onAdd = count => {
+    setItemsCount(count);
+  };
+
+  const onAddToCart = () => {
+    setItemCountVisible(false);
+    setBuyButtonsVisibility(false);
+  };
+
+  const onBuy = () => {
+    setItemCountVisible(false);
+    setBuyButtonsVisibility(false);
+  };
+
+  const onFinishBuy = () => {
+    console.log('Termine mi compra!');
+  };
+
 
   return (
     <Card className={classes.root}>
@@ -44,6 +70,22 @@ function ItemDetail({ name, productType, price, image, description, stock }) {
       <CardContent>
         <Typography paragraph>{description}</Typography>
       </CardContent>
+      <ItemCount stock={stock} />
+      {itemCountVisible && <ItemCount onAdd={onAdd} />}
+      <br />
+      <br />
+      {buyButtonsVisibility && (
+        <>
+          <button onClick={onAddToCart}>Agregar al carrito</button>
+          <button onClick={onBuy}>Comprar</button>
+        </>
+      )}
+      {!buyButtonsVisibility && (
+        <button onClick={onFinishBuy}>Terminar compra</button>
+      )}
+      <br />
+      <br />
+      {itemsCount}
     </Card>
   );
 }

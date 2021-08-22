@@ -9,6 +9,7 @@ import {
   Link,
 } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import ItemDetail from './components/ItemDetailContainer/ItemDetail/ItemDetail';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/:productType/:id" exact>
               <ItemDetailContainer titulo= "Novedades" />
             </Route>
+            <ItemDetail/>
           </Switch>
         </div>
       </BrowserRouter>

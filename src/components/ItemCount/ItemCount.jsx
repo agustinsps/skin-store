@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './ButtonStyles.css'
-
-
-        const ItemCount = (props) => {
+    
+        const ItemCount  = (props, onAdd = ()=>{} ) => {
 
             const [stock, setStock] = useState(props.stock)
             const [unidades, setUnidades] = useState(0)
@@ -25,7 +24,9 @@ import './ButtonStyles.css'
                     }
                 },
         }
-
+useEffect(()=>{
+onAdd(stock)
+}, [stock])
 
     return (
         <>
