@@ -21,7 +21,7 @@ function App() {
         </div>
         <div>
           <Switch>
-            <Route path="/">
+            <Route path="/" exact>
               <ItemListContainer h1="Bienvenidos" />
             </Route>
             <Route path="/:productType/:id" exact>
