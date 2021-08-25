@@ -27,7 +27,6 @@ function App() {
             <Route path="/:productType/:id" exact>
               <ItemDetailContainer titulo= "Novedades" />
             </Route>
-            <ItemDetail/>
           </Switch>
         </div>
       </BrowserRouter>

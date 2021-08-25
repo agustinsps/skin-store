@@ -26,7 +26,7 @@ import './ButtonStyles.css'
         }
 useEffect(()=>{
 onAdd(stock)
-}, [stock])
+}, [])
 
     return (
         <>
