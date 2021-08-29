@@ -25,7 +25,6 @@ import './ButtonStyles.css'
                 },
         }
 useEffect(()=>{
-onAdd(stock)
 }, [])
 
     return (

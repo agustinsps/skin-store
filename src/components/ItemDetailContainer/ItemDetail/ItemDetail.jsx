@@ -66,12 +66,12 @@ function ItemDetail({ name, productType, price, image, description, stock }) {
         <Typography variant="body2" color="textSecondary" component="p">
           <div> {productType} </div>
         </Typography>
-      </CardContent>
+      </CardContent>  
       <CardContent>
         <Typography paragraph>{description}</Typography>
       </CardContent>
-      <ItemCount stock={stock} />
-      {itemCountVisible && <ItemCount onAdd={onAdd} />}
+     
+      {itemCountVisible && < ItemCount onAdd={onAdd} />}
       <br />
       <br />
       {buyButtonsVisibility && (

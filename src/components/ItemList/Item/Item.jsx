@@ -10,7 +10,6 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ItemCount from "../../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -82,7 +81,7 @@ function Item({ name, productType, price, image, description, stock, id }) {
                         <Typography paragraph>{description}</Typography>
                     </CardContent>
                 </Collapse>
-                <ItemCount stock={stock} />
+                
             </Link>
         </Card>
     );
