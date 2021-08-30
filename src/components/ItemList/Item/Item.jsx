@@ -46,6 +46,7 @@ function Item({ name, productType, price, image, description, stock, id }) {
     return (
         <Card className={classes.root}>
             <Link to={`/${productType}/${id}`}>
+                
                 <CardHeader
                     action={
                         <Typography

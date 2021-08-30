@@ -7,6 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import ItemCount from "../../ItemCount/ItemCount";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
+import Cart from "../../Cart/Cart";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -76,13 +78,19 @@ function ItemDetail({ name, productType, price, image, description, stock }) {
       <br />
       {buyButtonsVisibility && (
         <>
-          <button onClick={onAddToCart}>Agregar al carrito</button>
+        <button onClick={onAddToCart}>Agregar al carrito</button>
+        
           <button onClick={onBuy}>Comprar</button>
+         
         </>
       )}
+      <Link to={'<Cart/>'}>
       {!buyButtonsVisibility && (
+        
         <button onClick={onFinishBuy}>Terminar compra</button>
+       
       )}
+       </Link>
       <br />
       <br />
       {itemsCount}
