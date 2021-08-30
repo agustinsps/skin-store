@@ -71,7 +71,7 @@ function ItemDetail({ name, productType, price, image, description, stock }) {
         <Typography paragraph>{description}</Typography>
       </CardContent>
      
-      {itemCountVisible && < ItemCount onAdd={onAdd} />}
+      {itemCountVisible && < ItemCount stock={stock}  onAdd={onAdd} />}
       <br />
       <br />
       {buyButtonsVisibility && (
