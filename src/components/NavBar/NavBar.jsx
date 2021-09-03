@@ -43,13 +43,13 @@ export default function NavBar() {
           <img src="/Images/logo.png" className={classes.image} alt="Logo" />
           <div className={classes.grow} />
           <div className={classes.links}>
-          <Typography variant="h6" color="textPrimary">
-            <Link to="/"> Home </Link>
-          </Typography>
+            <Typography variant="h6" color="textPrimary">
+              <Link to="/"> Home </Link>
+            </Typography>
 
-          <Typography variant="h6" color="textPrimary">
-            <Link to="/Novedades"> Novedades </Link>
-          </Typography>
+            <Typography variant="h6" color="textPrimary">
+              <Link to="/Novedades"> Novedades </Link>
+            </Typography>
           </div>
           <div className={classes.button}>
             <Button variant={"outlined"}>

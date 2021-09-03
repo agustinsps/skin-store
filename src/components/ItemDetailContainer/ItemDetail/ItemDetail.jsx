@@ -7,8 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import ItemCount from "../../ItemCount/ItemCount";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
-import Cart from "../../Cart/Cart";
+import { Link } from "react-router-dom";
+import {Context} from  "../../../Context/CartContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,14 +29,17 @@ function ItemDetail({ name, productType, price, image, description, stock }) {
   const [itemCountVisible, setItemCountVisible] = useState(true);
   const [buyButtonsVisibility, setBuyButtonsVisibility] = useState(true);
   const [itemsCount, setItemsCount] = useState(0);
+  const {onAdd} = useContext(Context)
 
-  const onAdd = count => {
+  const onAddC = (count) => {
     setItemsCount(count);
   };
 
   const onAddToCart = () => {
     setItemCountVisible(false);
     setBuyButtonsVisibility(false);
+    
+    onAdd({id,name,price})
   };
 
   const onBuy = () => {
@@ -45,9 +48,8 @@ function ItemDetail({ name, productType, price, image, description, stock }) {
   };
 
   const onFinishBuy = () => {
-    console.log('Termine mi compra!');
+    console.log("Termine mi compra!");
   };
-
 
   return (
     <Card className={classes.root}>
@@ -68,29 +70,26 @@ function ItemDetail({ name, productType, price, image, description, stock }) {
         <Typography variant="body2" color="textSecondary" component="p">
           <div> {productType} </div>
         </Typography>
-      </CardContent>  
+      </CardContent>
       <CardContent>
         <Typography paragraph>{description}</Typography>
       </CardContent>
-     
-      {itemCountVisible && < ItemCount stock={stock}  onAdd={onAdd} />}
+
+      {itemCountVisible && <ItemCount stock={stock} onAdd={onAddC} />}
       <br />
       <br />
       {buyButtonsVisibility && (
         <>
-        <button onClick={onAddToCart}>Agregar al carrito</button>
-        
+          <button onClick={onAddToCart}>Agregar al carrito</button>
+
           <button onClick={onBuy}>Comprar</button>
-         
         </>
       )}
-      <Link to={'<Cart/>'}>
-      {!buyButtonsVisibility && (
-        
-        <button onClick={onFinishBuy}>Terminar compra</button>
-       
-      )}
-       </Link>
+      <Link to="/cart">
+        {!buyButtonsVisibility && (
+          <button onClick={onFinishBuy}>Terminar compra</button>
+        )}
+      </Link>
       <br />
       <br />
       {itemsCount}
