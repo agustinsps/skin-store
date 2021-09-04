@@ -8,13 +8,11 @@ const CartFunction = ({children}) => {
     const [unidades, setUnidades] = useState(0)
     const [total, setTotal] = useState (0)
 
-
-
     const onAdd = (product, cantidad) => {
         const itemIn = cart.find(item => item.id == product.id)
         if (!itemIn){
             setCart([...cart, {id:product.id, name:product.name, price:product.price, cantidad:product.cantidad}])
-            setUnidades (unidades+1)
+            setUnidades(unidades+1)
             setTotal(total+(product.price*cantidad))
         }
     }
@@ -23,4 +21,4 @@ const CartFunction = ({children}) => {
             </Context.Provider>
 }
 
-export { CartFunction, Context}
+export {CartFunction, Context}

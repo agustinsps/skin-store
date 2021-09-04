@@ -7,7 +7,7 @@ function Cart () {
 const {cart} = useContext(Context)
 return (
    <>
-   {cart?cart.map((item)=> <div>{item.name, item.price}</div>): <div>No hay nada en el carrito!</div>}
+   {cart?cart.map((item)=> <div>{item.name}</div>): <div>No hay nada en el carrito!</div>}
    </>
 );
 
